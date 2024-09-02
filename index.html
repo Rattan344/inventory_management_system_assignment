@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <p>
+        "output is printed in console"
+    </p>
+    <script>
+        // Sample Inventory Management System
+
+// Initial Inventory
+let inventory = [
+  { id: 1, name: 'Apple', quantity: 10, price: 0.5 },
+  { id: 2, name: 'Banana', quantity: 20, price: 0.2 }
+];
+
+// Function to add an item to the inventory
+function addItem(inventory, item) {
+  inventory.push(item);
+}
+
+// Function to update an item in the inventory
+function updateItem(inventory, id, newDetails) {
+  let item = inventory.find(item => item.id === id);
+  if (item) {
+    Object.assign(item, newDetails);
+  }
+}
+
+// Function to delete an item from the inventory
+function deleteItem(inventory, id) {
+  let index = inventory.findIndex(item => item.id === id);
+  if (index !== -1) {
+    inventory.splice(index, 1);
+  }
+}
+
+// Function to get an item by its id
+function getItem(inventory, id) {
+  return inventory.find(item => item.id === id);
+}
+
+// Function to print the inventory
+function printInventory(inventory) {
+  console.log("Inventory:");
+  inventory.forEach(item => {
+    console.log(`ID: ${item.id}, Name: ${item.name}, Quantity: ${item.quantity}, Price: $${item.price}`);
+  });
+}
+
+// Example usage:
+
+// Adding an item
+addItem(inventory, { id: 3, name: 'Orange', quantity: 15, price: 0.7 });
+printInventory(inventory);
+
+// Updating an item
+updateItem(inventory, 2, { quantity: 30 });
+printInventory(inventory);
+
+// Deleting an item
+deleteItem(inventory, 2);
+printInventory(inventory);
+
+// Getting an item by its id
+let item = getItem(inventory, 1);
+console.log("Get Item:", item);
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>
